@@ -27,10 +27,11 @@ let g:which_key_map['?'] = [ ':NvimTreeFindFile'                               ,
 let g:which_key_map['e'] = [ ':NvimTreeToggle'                                 , 'explorer' ]
 let g:which_key_map['f'] = [ ':Telescope find_files'                           , 'find files' ]
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
+let g:which_key_map['v'] = [ '<C-W>v'                                          , 'split right']
 let g:which_key_map['H'] = [ ':let @/ = ""'                                    , 'no highlight' ]
 let g:which_key_map['r'] = [ ':RnvimrToggle'                                   , 'ranger' ]
+let g:which_key_map['V'] = [ ':FloatermNew vifm'                               , 'Vifm' ]
 " TODO create entire treesitter section
-let g:which_key_map['v'] = [ '<C-W>v'                                          , 'split right']
 " TODO play nice with status line
 
 " Group mappings
@@ -44,6 +45,7 @@ let g:which_key_map.b = {
       \ 'd' : [':BufferClose'               , 'delete-buffer'],
       \ 'n' : ['bnext'                  , 'next-buffer'],
       \ 'p' : ['bprevious'              , 'previous-buffer'],
+	  \ 'B' : [':Telescope buffers<CR>'	, 'Telescope-buffer-select'],
       \ '?' : ['Buffers'                , 'fzf-buffer'],
       \ }
 

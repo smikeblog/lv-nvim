@@ -1,12 +1,18 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+-- local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
+--if fn.empty(fn.glob(install_path)) > 0 then
+--    execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+--    execute "packadd packer.nvim"
+--end
+-- Auto install packer.nvim if not exists
+local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
-    execute "packadd packer.nvim"
+  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
+vim.cmd [[packadd packer.nvim]]
 
 --- Check if a file or directory exists in this path
 local function require_plugin(plugin)
@@ -33,7 +39,7 @@ vim.cmd "autocmd BufWritePost plugins.lua PackerCompile" -- Auto compile when th
 return require("packer").startup(
     function(use)
         -- Packer can manage itself as an optional plugin
-        use "wbthomason/packer.nvim"
+        use {"wbthomason/packer.nvim", opt=true}
 
         -- TODO refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
         use {"neovim/nvim-lspconfig", opt = true}
@@ -78,7 +84,21 @@ return require("packer").startup(
 
         -- Status Line and Bufferline
         use {"glepnir/galaxyline.nvim", opt = true}
-        use {"romgrk/barbar.nvim", opt = true}
+
+		-- float term
+		use 'voldikss/vim-floaterm'
+
+     --nvim-cheat
+    use {
+        'RishabhRD/nvim-cheat.sh',
+        	opt=true,
+        requires = {
+            'RishabhRD/popfix',
+            opt=true
+        }
+    }
+
+       use {"romgrk/barbar.nvim", opt = true}
 
         require_plugin("nvim-lspconfig")
         require_plugin("lspsaga.nvim")
@@ -102,5 +122,8 @@ return require("packer").startup(
         require_plugin("nvim-web-devicons")
         require_plugin("galaxyline.nvim")
         require_plugin("barbar.nvim")
+        require_plugin("vim-floaterm")
+        require_plugin("popfix")
+        require_plugin("nvim-cheat.sh")
     end
 )
