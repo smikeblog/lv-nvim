@@ -50,6 +50,8 @@ return require("packer").startup(
         use {"nvim-lua/popup.nvim", opt = true}
         use {"nvim-lua/plenary.nvim", opt = true}
         use {"nvim-telescope/telescope.nvim", opt = true}
+        use {'nvim-telescope/telescope-fzy-native.nvim', opt = true}
+        use {'nvim-telescope/telescope-media-files.nvim', opt = true}
 
         -- Dbugging
         use {"mfussenegger/nvim-dap", opt = true}
@@ -105,6 +107,8 @@ return require("packer").startup(
         require_plugin("nvim-lspinstall")
         require_plugin("popup.nvim")
         require_plugin("plenary.nvim")
+        require_plugin("telescope-fzy-native.nvim")
+        require_plugin("telescope-media-files.nvim")
         require_plugin("telescope.nvim")
         require_plugin("nvim-dap")
         require_plugin("nvim-compe")

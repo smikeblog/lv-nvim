@@ -19,6 +19,7 @@ require('lv-autopairs')
 require('lv-barbar')
 require('lv-rnvimr')
 require('lv-floaterm')
+--require('lv-whichkey')
 
 -- Which Key (Hope to replace with Lua plugin someday)
 vim.cmd('source ~/.config/nvim/vimscript/lv-whichkey/init.vim')
