@@ -22,8 +22,10 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 let g:which_key_map['/'] = 'comment toggle'
+let g:which_key_map['\'] = [ ':let @/ = ""'                                    , 'clear highlight' ]
 let g:which_key_map[';'] = [ ':Dashboard'                                      , 'home screen' ]
 let g:which_key_map['?'] = [ ':NvimTreeFindFile'                               , 'find current file' ]
+let g:which_key_map['q'] = [ ':bd'                        	                   , 'delete buffer']
 let g:which_key_map['e'] = [ ':NvimTreeToggle'                                 , 'explorer' ]
 let g:which_key_map['f'] = [ ':Telescope find_files'                           , 'find files' ]
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
@@ -137,6 +139,23 @@ let g:which_key_map.l = {
       \ 'x' : [':cclose'                             , 'close quickfix'],
       \ 's' : [':Telescope lsp_document_symbols'     , 'document symbols'],
       \ 'S' : [':Telescope lsp_workspace_symbols'    , 'workspace symbols'],
+      \ }
+
+" t is for terminal
+let g:which_key_map.t = {
+      \ 'name' : '+terminal' ,
+      \ ';' : [':FloatermNew --wintype=popup --height=8'        , 'terminal'],
+      \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
+      \ 'g' : [':FloatermNew lazygit'                           , 'git'],
+      \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
+      \ 'n' : [':FloatermNew node'                              , 'node'],
+      \ 'v' : [':FloatermNew vifm'                              , 'vifm'],
+      \ 'p' : [':FloatermNew python'                            , 'python'],
+      \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
+      \ 'l' : [':FloatermNew lf'                                , 'lf'],
+      \ 't' : [':FloatermToggle'                                , 'toggle'],
+      \ 'y' : [':FloatermNew ytop'                              , 'ytop'],
+      \ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
       \ }
 
 call which_key#register('<Space>', "g:which_key_map")
