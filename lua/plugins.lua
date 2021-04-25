@@ -88,7 +88,10 @@ return require("packer").startup(
         use {"glepnir/galaxyline.nvim", opt = true}
 
 		-- float term
-		use 'voldikss/vim-floaterm'
+		use {
+			'voldikss/vim-floaterm',
+			opt=true
+			}
 
      --nvim-cheat
     use {
