@@ -100,7 +100,18 @@ return require("packer").startup(
 		use {'norcalli/nvim-colorizer.lua', opt=true}
 
         -- Icons
-        use {"kyazdani42/nvim-web-devicons", opt = true}
+--        use {"kyazdani42/nvim-web-devicons", opt = true}
+           -- lua `fork` of vim-web-devicons for neovim
+        use {
+          "kyazdani42/nvim-web-devicons",
+          opt = true,
+          requires = {
+            -- Icon set using nonicons for neovim plugins and settings.
+            -- requires nonicons font installed
+            "yamatsum/nvim-nonicons",
+          opt = true,
+          }
+        }
 
         -- Status Line and Bufferline
         use {"glepnir/galaxyline.nvim", opt = true}
@@ -145,6 +156,7 @@ return require("packer").startup(
         require_plugin("nvim-bqf")
         require_plugin("nvcode-color-schemes.vim")
         require_plugin("nvim-web-devicons")
+        require_plugin("nvim-nonicons")
         require_plugin("nvim-colorizer.lua")
         require_plugin("galaxyline.nvim")
         require_plugin("barbar.nvim")
