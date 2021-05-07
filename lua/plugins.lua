@@ -51,7 +51,6 @@ return require("packer").startup(
         use {"nvim-lua/plenary.nvim", opt = true}
         use {"nvim-telescope/telescope.nvim", opt = true}
         use {'nvim-telescope/telescope-fzy-native.nvim', opt = true}
---        use {'nvim-telescope/telescope-media-files.nvim', opt = true}
 
         -- Dbugging
         use {"mfussenegger/nvim-dap", opt = true}
@@ -72,8 +71,7 @@ return require("packer").startup(
 
         -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
         use {"lewis6991/gitsigns.nvim", opt = true}
---       use {"liuchengxu/vim-which-key", opt = true}
-		use {"folke/which-key.nvim", opt = true}
+        use {"folke/which-key.nvim", opt = true}
         use {"ChristianChiarulli/dashboard-nvim", opt = true}
         use {"windwp/nvim-autopairs", opt = true}
         use {"terrortylor/nvim-comment", opt = true}
@@ -114,7 +112,6 @@ return require("packer").startup(
         require_plugin("popup.nvim")
         require_plugin("plenary.nvim")
         require_plugin("telescope-fzy-native.nvim")
---        require_plugin("telescope-media-files.nvim")
         require_plugin("telescope.nvim")
         require_plugin("nvim-dap")
         require_plugin("nvim-compe")
@@ -124,14 +121,13 @@ return require("packer").startup(
         require_plugin("nvim-tree.lua")
         require_plugin("gitsigns.nvim")
 		require_plugin("which-key.nvim")
---        require_plugin("vim-which-key")
         require_plugin("dashboard-nvim")
         require_plugin("nvim-autopairs")
         require_plugin("nvim-comment")
         require_plugin("nvim-bqf")
         require_plugin("nvcode-color-schemes.vim")
         require_plugin("nvim-web-devicons")
-		require_plugin("nvim-colorizer.lua")
+        require_plugin("nvim-colorizer.lua")
         require_plugin("galaxyline.nvim")
         require_plugin("barbar.nvim")
         require_plugin("vim-floaterm")
