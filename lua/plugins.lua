@@ -46,11 +46,23 @@ return require("packer").startup(
         use {"glepnir/lspsaga.nvim", opt = true}
         use {"kabouzeid/nvim-lspinstall", opt = true}
 
-        -- Tlescope
-        use {"nvim-lua/popup.nvim", opt = true}
-        use {"nvim-lua/plenary.nvim", opt = true}
-        use {"nvim-telescope/telescope.nvim", opt = true}
-        use {'nvim-telescope/telescope-fzy-native.nvim', opt = true}
+        -- Telescope
+        -- Find, Filter, Preview, Pick. All lua, all the time.
+        use {
+          "nvim-telescope/telescope.nvim",
+          opt = true,
+          requires = {
+            -- An implementation of the Popup API from vim in Neovim.
+            { "nvim-lua/popup.nvim",
+    			opt=true},
+            -- plenary: full; complete; entire; absolute; unqualified.
+            { "nvim-lua/plenary.nvim",
+    			opt=true},
+            -- fzy: use fast fzy algorithm.
+            {'nvim-telescope/telescope-fzy-native.nvim',
+                opt = true},
+          },
+        }
 
         -- Dbugging
         use {"mfussenegger/nvim-dap", opt = true}
@@ -61,8 +73,14 @@ return require("packer").startup(
         use {"rafamadriz/friendly-snippets", opt = true}
 
         -- Teesitter
-        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
-        use {"windwp/nvim-ts-autotag", opt = true}
+        use {
+          "nvim-treesitter/nvim-treesitter",
+            run = ":TSUpdate",
+          requires = {
+            {"windwp/nvim-ts-autotag",
+                opt = true},
+          },
+        }
 
         -- Eplorer
         use {"kyazdani42/nvim-tree.lua", opt=true}
