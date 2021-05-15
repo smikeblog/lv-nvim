@@ -7,6 +7,8 @@ O = {
     number = true,
     relative_number = true,
     shell = 'bash',
+    timeoutlen = 100,
+    nvim_tree_disable_netrw = 0, -- "1 by default, disables netrw (must be set before plugin's packadd)
 
     -- @usage pass a table with your desired languages
     treesitter = {
@@ -68,3 +70,5 @@ O = {
 DATA_PATH = vim.fn.stdpath('data')
 CACHE_PATH = vim.fn.stdpath('cache')
 
+-- highlight yanked text for 250ms
+vim.cmd [[au TextYankPost * silent! lua vim.highlight.on_yank{ timeout = 350 }]]
